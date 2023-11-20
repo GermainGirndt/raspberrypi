@@ -6,12 +6,14 @@ from Light.Light import Light
 from CrosswalkButton.KeyboardCrosswalkButton import KeyboardCrosswalkButton
 from TrafficLightController.TrafficLightControllerForStreetSegment import TrafficLightControllerForStreetSegment
 
-SHOULD_USE_GPIO = False
+# Set to True if running on Raspberry Pi
+# Set to False if running on local machine
+SHOULD_USE_RASPBERRY_PI = False
 
 # Create a thread-safe queue
 button_pressed_queue = SimpleQueue()
 
-if SHOULD_USE_GPIO:
+if SHOULD_USE_RASPBERRY_PI:
     traffic_light = GPIOTrafficLight()
     crosswalk_button = GPIOCrosswalkButton(button_pressed_queue)
 else:
