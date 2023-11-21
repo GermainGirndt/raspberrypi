@@ -7,7 +7,7 @@ from TrafficLightController.TrafficLightControllerForStreetSegment import Traffi
 
 # Set to True if running on Raspberry Pi
 # Set to False if running on local machine with keyboard
-SHOULD_USE_RASPBERRY_PI = False
+SHOULD_USE_RASPBERRY_PI = True
 
 # Create a thread-safe queue
 button_pressed_queue = SimpleQueue()
