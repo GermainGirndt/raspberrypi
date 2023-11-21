@@ -12,6 +12,6 @@ class GPIOCrosswalkButton(CrosswalkButton):
         super().__init__(button_pressed_queue)
     
     def run(self):
-        self.gpio_button = Button(self.GPIO_BUTTON_PIN)
+        self.gpio_button = Button(self.GPIO_BUTTON_PIN, hold_time=0.15)
         self.gpio_button.when_pressed = self.press
         
