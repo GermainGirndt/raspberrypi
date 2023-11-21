@@ -1,9 +1,8 @@
 import threading
 from queue import SimpleQueue
+from Light.Light import Light
 from Light.GPIOTrafficLight import GPIOTrafficLight
 from CrosswalkButton.GPIOCrosswalkButton import GPIOCrosswalkButton
-from Light.Light import Light
-from CrosswalkButton.KeyboardCrosswalkButton import KeyboardCrosswalkButton
 from TrafficLightController.TrafficLightControllerForStreetSegment import TrafficLightControllerForStreetSegment
 
 # Set to True if running on Raspberry Pi
@@ -17,6 +16,9 @@ if SHOULD_USE_RASPBERRY_PI:
     traffic_light = GPIOTrafficLight()
     crosswalk_button = GPIOCrosswalkButton(button_pressed_queue)
 else:
+    # Lazy importing KeyboardCrosswalkButton 
+    # for avoiding problems while using RaspberryPi without Keyboard configured
+    from CrosswalkButton.KeyboardCrosswalkButton import KeyboardCrosswalkButton
     traffic_light = Light()
     crosswalk_button = KeyboardCrosswalkButton(button_pressed_queue)
     
