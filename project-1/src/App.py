@@ -7,7 +7,7 @@ from CrosswalkButton.KeyboardCrosswalkButton import KeyboardCrosswalkButton
 from TrafficLightController.TrafficLightControllerForStreetSegment import TrafficLightControllerForStreetSegment
 
 # Set to True if running on Raspberry Pi
-# Set to False if running on local machine
+# Set to False if running on local machine with keyboard
 SHOULD_USE_RASPBERRY_PI = False
 
 # Create a thread-safe queue
